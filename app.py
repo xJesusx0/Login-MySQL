@@ -3,6 +3,7 @@ from flask import render_template
 from flask import session
 from flask import request
 from flask import redirect
+from flask import flash
 from flask_session import Session
 from flask_mysqldb import MySQL
 from Models.models import Users
@@ -36,9 +37,10 @@ def login():
         response = users.validate_user(username,password)
     
         if response == None:
-            return render_template("login.html", error = "Usuario invalido")
+            flash("Nombre de usuario o contraseña incorrectos")
+            return render_template("login.html")
 
-        session["name"] = request.form.get("username")
+        session["name"] = username
 
         return redirect("/") 
     

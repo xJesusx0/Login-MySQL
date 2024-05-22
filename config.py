@@ -5,3 +5,4 @@ class Config:
     MYSQL_USER = 'root'
     MYSQL_PASSWORD = '081880'
     MYSQL_DB = 'Login'
+    SECRET_KEY = 'secret'
