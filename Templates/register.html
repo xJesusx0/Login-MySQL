@@ -11,15 +11,18 @@
         <h2>Crear una cuenta</h2>
         <div class="form-container">
             <form action="/register" method="post">
-                <h4 class="input-label">Username</h4>
+                <h4 class="input-label">Nombre</h4>
                 <input class="input-group" type="text" placeholder="Username" name="username" autocomplete="off" required>
                 <input class="input-group" type="text" placeholder="Confirm username" name="confirm-username" autocomplete="off" required>
 
-                <h4 class="input-label">Password</h4>
+                <h4 class="input-label">Contraseña</h4>
                 <input class="input-group" type="password" placeholder="Password" name="password" autocomplete="off" required>
                 <input class="input-group" type="password" placeholder="Confirm password" name="confirm-password" autocomplete="off" required>
                 <button class="submit-button" type="submit">Crear cuenta</button>
             </form>
+            <h5> Ya tienes una cuenta? </h5>
+            <h5> Inicia sesion <a class="register-redirect" href="/login"> aqui</a> </h5>
+
         </div>
     </div>
 
