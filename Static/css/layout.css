@@ -37,3 +37,36 @@ img{
     margin-left: 2em;
     border-radius: 10px;
 }
+.material-symbols-outlined{
+    margin-right: 0.5em; 
+}
+
+.alert {
+    width: 50%;
+    margin: 10px auto; 
+    background-color: #e40d0d;
+    color: #fff; 
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between; 
+    border-radius: 1em; 
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+    font-size: 1rem;
+}
+
+.close {
+    background: none;
+    border: none;
+    color: #ffffff;
+    font-size: 1.5rem; 
+    line-height: 1;
+    cursor: pointer;
+    padding: 0 10px;
+    border-radius: 50%; 
+    transition: color 0.2s ease;
+}
+
+.close:hover {
+    color: #808080; 
+}

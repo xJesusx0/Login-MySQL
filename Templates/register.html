@@ -2,20 +2,24 @@
 
 {% block set_style %}
     <link rel="stylesheet" href="{{ url_for('static', filename = 'css/login.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename = 'css/register.css') }}">
+
 {% endblock %}
 
 {% block body %}
     <div class="card">
-        <h2>Login</h2>
+        <h2>Crear una cuenta</h2>
         <div class="form-container">
-            <form action="/login" method="post">
+            <form action="/register" method="post">
+                <h4 class="input-label">Username</h4>
                 <input class="input-group" type="text" placeholder="Username" name="username" autocomplete="off" required>
-                <input class="input-group" type="password" placeholder="Password" name="password" autocomplete="off" required>
-                <button class="submit-button" type="submit">Ingresar</button>
-            </form>
-            <h5> No tienes una cuenta? </h5>
-            <h5> Creala <a class="register-redirect" href="/register"> aqui</a> </h5>
+                <input class="input-group" type="text" placeholder="Confirm username" name="confirm-username" autocomplete="off" required>
 
+                <h4 class="input-label">Password</h4>
+                <input class="input-group" type="password" placeholder="Password" name="password" autocomplete="off" required>
+                <input class="input-group" type="password" placeholder="Confirm password" name="confirm-password" autocomplete="off" required>
+                <button class="submit-button" type="submit">Crear cuenta</button>
+            </form>
         </div>
     </div>
 
@@ -36,4 +40,3 @@
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 {% endblock %}
-    
