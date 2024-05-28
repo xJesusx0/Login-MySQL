@@ -7,8 +7,12 @@
 {% block body %}
     <div class="welcome-container">
         <h1>Bienvenido {{ name }}</h1>
-        <a class="logout" href="/auth/logout"> <span class="material-symbols-outlined"> logout </span> Cerrar sesion</a>
+        <div class="actions-container">
+            <a class="logout" href="/auth/logout"> <span class="material-symbols-outlined"> logout </span> Cerrar sesion</a>
+            <a class="delete" href="/auth/delete-account"> <span class="material-symbols-outlined"> delete </span> Eliminar mi cuenta </a>
+        </div>
+        
     </div>
-    
+        
 {% endblock %}
     
