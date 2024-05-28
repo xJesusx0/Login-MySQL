@@ -1,12 +1,9 @@
 from flask import Flask
 from flask import render_template
 from flask import session
-from flask import request
 from flask import redirect
-from flask import flash
 from flask_session import Session
 from flask_mysqldb import MySQL
-from Models.models import Users
 from Blueprints.auth import auth as auth_blueprint
 
 app = Flask(__name__)
