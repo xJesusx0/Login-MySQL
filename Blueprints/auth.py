@@ -14,7 +14,7 @@ def login():
     if request.method != "POST":
         return render_template("login.html")
     
-    users = Users(mysql=auth.mysql)
+    users = Users(auth.mysql)
 
     username = request.form.get("username")
     password = request.form.get("password")
@@ -56,11 +56,20 @@ def register():
         flash("Las contraseñas no coinciden")
         return render_template("register.html")
 
-    users = Users(mysql=auth.mysql)
+    users = Users(auth.mysql)
     
     if users.user_exists(username):
         flash("Usuario existente, intenta con otro")
         return render_template("register.html")
 
     users.register_user(username,password)
+    return redirect("/")
+
+@auth.route("delete-account",methods=["POST","GET"])
+def delete_account():
+    users = Users(auth.mysql)
+    users.delete_user(session["id"])
+
+    session["id"] = None
+    session["name"] = None
     return redirect("/")
