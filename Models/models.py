@@ -1,6 +1,6 @@
 from functools import wraps
 
-def handle_database_operations(func):
+def handle_database_operations(func:callable) -> callable:
     @wraps(func)
     def wrapper(self, *args, **kwargs):
         cursor = self.mysql.connection.cursor()
@@ -11,6 +11,7 @@ def handle_database_operations(func):
             return result
         
         except Exception as error:
+            self.mysql.connection.rollback()
             print("Database error:", error)
         
         finally:
@@ -24,7 +25,7 @@ class Users():
         self.mysql = mysql
 
     @handle_database_operations
-    def validate_user(self, cursor, username, password):
+    def validate_user(self, cursor, username:str, password:str):
 
         cursor.execute("SELECT * FROM users WHERE name = %s AND password = %s ;", (username, password))
         response = cursor.fetchone()
@@ -35,7 +36,7 @@ class Users():
         return None
     
     @handle_database_operations
-    def user_exists(self,cursor,username):
+    def user_exists(self,cursor,username:str):
         cursor.execute("SELECT * FROM users WHERE name = %s ;", (username,))
         response = cursor.fetchone()
 
@@ -45,7 +46,10 @@ class Users():
         return False
     
     @handle_database_operations
-    def register_user(self, cursor,username, password):
+    def register_user(self, cursor,username:str, password:str):
         cursor.execute("INSERT INTO users (name, password) VALUES (%s, %s);", (username, password))
 
+    @handle_database_operations
+    def delete_user(self,cursor,user_id:int):
+        cursor.execute("DELETE FROM users WHERE id = %s ;", (user_id,))
 
