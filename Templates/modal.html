@@ -1,0 +1,17 @@
+<head>
+    <link rel="stylesheet" href="{{ url_for('static', filename = 'css/modal.css') }}">
+
+</head>
+
+<div id="myModal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="cerrarModal()">&times;</span>
+        <p>¿Estás seguro de que deseas eliminar tu cuenta?</p>
+        <div class="buttons-container">
+            <button class="modal-button" id="confirm" onclick="confirmarEliminacion()">Eliminar</button>
+            <button class="modal-button" id="cancel" onclick="cerrarModal()">Cancelar</button>
+        </div>
+    </div>
+</div>
+
+<script src="{{ url_for('static', filename = 'js/modal.js') }}"></script>
