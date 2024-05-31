@@ -1,21 +1,21 @@
 {% extends 'layout.html' %}
 
 {% block set_style %}
-    
+    <link rel="stylesheet" href="{{ url_for('static', filename = 'css/login.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename = 'css/update.css') }}">
 {% endblock %}
 
 {% block body %}
     <div class="card">
         <h2>Actualizar contraseña</h2>
-        <h3>{{ username }}</h3>
         <div class="form-container">
             <form action="/auth/update-password" method="post">
+                <h4 class="input-label"> Nueva contraseña </h4>
                 <input class="input-group" type="password" placeholder="Password" name="password" autocomplete="off" required>
+                <h4 class="input-label"> Confirmar contraseña </h4>
                 <input class="input-group" type="password" placeholder="Confirm password" name="confirm-password" autocomplete="off" required>
                 <button class="submit-button" type="submit">Actualizar contraseña</button>
             </form>
-            <h5> Cancelar <a class="cancel" href="/"> aqui</a> </h5>
-
         </div>
     </div>
     {% include 'flash.html'   %}

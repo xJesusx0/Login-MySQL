@@ -77,6 +77,6 @@ def delete_account():
 @auth.route("update-password", methods = ["POST","GET"])
 def change_password():
     if request.method != "POST":
-        return render_template("update.html", username = session["name"])
+        return render_template("update.html")
     
     
