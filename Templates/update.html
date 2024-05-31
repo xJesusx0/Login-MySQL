@@ -1,0 +1,22 @@
+{% extends 'layout.html' %}
+
+{% block set_style %}
+    
+{% endblock %}
+
+{% block body %}
+    <div class="card">
+        <h2>Actualizar contraseña</h2>
+        <h3>{{ username }}</h3>
+        <div class="form-container">
+            <form action="/auth/update-password" method="post">
+                <input class="input-group" type="password" placeholder="Password" name="password" autocomplete="off" required>
+                <input class="input-group" type="password" placeholder="Confirm password" name="confirm-password" autocomplete="off" required>
+                <button class="submit-button" type="submit">Actualizar contraseña</button>
+            </form>
+            <h5> Cancelar <a class="cancel" href="/"> aqui</a> </h5>
+
+        </div>
+    </div>
+    {% include 'flash.html'   %}
+{% endblock %}
