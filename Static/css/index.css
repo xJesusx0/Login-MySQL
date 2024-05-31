@@ -5,6 +5,7 @@ body{
 h1{
     color: white;
 }
+
 .welcome-container{
     display: flex;
     align-items: center;
@@ -12,42 +13,51 @@ h1{
     padding: 0 5em 0 5em;
 }
 
-.logout{
-    text-decoration: none;
-    background-color:rgb(68, 68, 68);
-    color: white;
-    border-radius: 2.5em;
-    padding: 0.3em 0.9em 0.3em 0.9em ;
-    display: flex;
-    align-items: center;
-    transition: background-color 0.3s ease;
-    width: 30%;
-}
-
-.logout:hover{
-    background-color:#df9d01;
-    color: black;
-}
-
 .actions-container{
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 0 2em 0 2em;
+    gap: 1em;
 }
 
-.delete{
-    text-decoration: none;
-    background-color:#8a0303;
-    color: white;
+.action{
     border-radius: 2.5em;
     padding: 0.3em 0.9em 0.3em 0.9em ;
     display: flex;
     align-items: center;
     transition: background-color 0.3s ease;
-    width: 40%;
+    text-decoration: none;
+    height: 7vh;
 }
 
-.delete:hover{
+#logout{
+    background-color:rgb(68, 68, 68);
+    color: white;
+    width: 30%;
+}
+
+#logout:hover{
+    background-color:#df9d01;
+    color: black;
+}
+
+#delete{
+    background-color:#b40303;
+    color: white;
+    width: 30%;
+}
+
+#delete:hover{
     background-color:#ff0000;
+}
+
+#update{
+    background-color:#02519b;
+    color: white;
+    width: 30%;
+}
+
+#update:hover{
+    background-color:#0d70cc;
 }
