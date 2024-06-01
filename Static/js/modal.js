@@ -1,5 +1,7 @@
-function mostrarModal() {
+function mostrarModal(element) {
     document.getElementById("myModal").style.display = "block";
+    window.url = element.getAttribute("modal-url")
+    console.log(window.url)
 }
 
 function cerrarModal() {
@@ -7,7 +9,7 @@ function cerrarModal() {
 }
 
 function confirmarEliminacion() {
-    window.location.href = "/auth/delete-account";
+    window.location.href = url;
 }
 
 window.onclick = function(event) {
