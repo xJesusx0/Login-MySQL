@@ -6,9 +6,9 @@
 <div id="myModal" class="modal">
     <div class="modal-content">
         <span class="close" onclick="cerrarModal()">&times;</span>
-        <p>¿Estás seguro de que deseas eliminar tu cuenta?</p>
+        <p>{{ modal_message }}</p>
         <div class="buttons-container">
-            <button class="modal-button" id="confirm" onclick="confirmarEliminacion()">Eliminar</button>
+            <button class="modal-button" id="confirm" onclick="confirmarEliminacion()">Si</button>
             <button class="modal-button" id="cancel" onclick="cerrarModal()">Cancelar</button>
         </div>
     </div>
