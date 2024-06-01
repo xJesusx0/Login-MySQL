@@ -55,5 +55,5 @@ class Users():
     
     @handle_database_operations
     def update_password(self, cursor, user_id:int, new_password:str):
-        cursor.execute("DELETE FROM users WHERE id = %s ;", (user_id,))
+        cursor.execute("UPDATE users SET password = %s WHERE id = %s ;", (new_password,user_id))
 
