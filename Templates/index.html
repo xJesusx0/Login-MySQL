@@ -9,7 +9,7 @@
         <h1>Bienvenido {{ name }}</h1>
         <div class="actions-container">
             <a id="logout" class="action" href="/auth/logout"> <span class="material-symbols-outlined"> logout </span> Cerrar sesion</a>
-            <a id="delete" class="action" href="javascript:void(0);" onclick="mostrarModal()"> <span class="material-symbols-outlined"> delete </span>Eliminar mi cuenta</a>
+            <a id="delete" class="action" href="javascript:void(0);" onclick="mostrarModal(this)" modal-url = "auth/delete-account"> <span class="material-symbols-outlined"> delete </span>Eliminar mi cuenta</a>
             <a id="update" class="action" href="/auth/update-password"><span class="material-symbols-outlined"> update </span> Cambiar mi contraseña </a>
         </div>
         
