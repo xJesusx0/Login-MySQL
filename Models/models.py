@@ -36,7 +36,7 @@ class Users():
         return None
     
     @handle_database_operations
-    def user_exists(self,cursor,username:str):
+    def user_exists(self, cursor, username:str):
         cursor.execute("SELECT * FROM users WHERE name = %s ;", (username,))
         response = cursor.fetchone()
 
@@ -46,10 +46,14 @@ class Users():
         return False
     
     @handle_database_operations
-    def register_user(self, cursor,username:str, password:str):
+    def register_user(self, cursor, username:str, password:str):
         cursor.execute("INSERT INTO users (name, password) VALUES (%s, %s);", (username, password))
 
     @handle_database_operations
-    def delete_user(self,cursor,user_id:int):
+    def delete_user(self, cursor, user_id:int):
+        cursor.execute("DELETE FROM users WHERE id = %s ;", (user_id,))
+    
+    @handle_database_operations
+    def update_password(self, cursor, user_id:int, new_password:str):
         cursor.execute("DELETE FROM users WHERE id = %s ;", (user_id,))
 

@@ -4,6 +4,7 @@ from flask import request
 from flask import redirect
 from flask import flash
 from flask import Blueprint
+from flask import url_for
 from Models.models import Users
 
 auth = Blueprint('auth',__name__)
@@ -77,6 +78,17 @@ def delete_account():
 @auth.route("update-password", methods = ["POST","GET"])
 def change_password():
     if request.method != "POST":
+        return render_template("update.html", username = session["name"], modal_message = "Estas seguro de actualizar tu contraseña")
+    
+    password = request.form.get("password")  
+    confirm_password = request.form.get("confirm-password")  
+
+    if password != confirm_password:
+        flash("Las contraseñas no coinciden")
         return render_template("update.html")
     
-    
+    users = Users(auth.mysql)
+
+    users.update_password(session["id"],password)
+
+    return redirect("/")
