@@ -24,7 +24,7 @@ def index():
             return redirect("/auth/login")
     except KeyError:
         return redirect("/auth/login")
-    return render_template("index.html", name = session["name"])
+    return render_template("index.html", name = session["name"], modal_message = "Estas seguro de eliminar tu cuenta")
 
 if __name__ == '__main__':
     app.run(debug=True)
